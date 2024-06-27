@@ -3,6 +3,7 @@
   "name": "react-devtools-shared",
   "version": "0.0.0",
   "scripts": {
+    "build:lib": "cross-env NODE_ENV=production webpack --config webpack.lib.js",
     "update-mock-source-maps": "babel-node --presets=@babel/preset-env,@babel/preset-flow ./src/hooks/__tests__/updateMockSourceMaps.js"
   },
   "devDependencies": {

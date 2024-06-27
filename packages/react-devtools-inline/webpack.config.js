@@ -33,6 +33,14 @@ const babelOptions = {
   ),
 };
 
+const builtModulesDir = resolve(
+  __dirname,
+  '..',
+  '..',
+  'build',
+  'oss-experimental',
+);
+
 module.exports = {
   mode: __DEV__ ? 'development' : 'production',
   devtool: __DEV__ ? 'eval-cheap-source-map' : 'source-map',
@@ -47,15 +55,23 @@ module.exports = {
     filename: '[name].js',
     chunkFilename: '[name].chunk.js',
     library: {
-      type: 'commonjs2',
+      type: 'module',
     },
   },
   externals: {
-    react: 'react',
-    'react-dom': 'react-dom',
-    'react-dom/client': 'react-dom/client',
-    'react-is': 'react-is',
-    scheduler: 'scheduler',
+    // react: 'react',
+    // 'react-dom': 'react-dom',
+    // 'react-dom/client': 'react-dom/client',
+    // 'react-is': 'react-is',
+    // scheduler: 'scheduler',
+
+    react: resolve(builtModulesDir, 'react'),
+    'react-debug-tools': resolve(builtModulesDir, 'react-debug-tools'),
+    'react-devtools-feature-flags': resolveFeatureFlags('shell'),
+    'react-dom/client': resolve(builtModulesDir, 'react-dom/unstable_testing'),
+    'react-dom': resolve(builtModulesDir, 'react-dom'),
+    'react-is': resolve(builtModulesDir, 'react-is'),
+    scheduler: resolve(builtModulesDir, 'scheduler'),
   },
   node: {
     global: false,
@@ -64,6 +80,9 @@ module.exports = {
     alias: {
       'react-devtools-feature-flags': resolveFeatureFlags('inline'),
     },
+  },
+  experiments: {
+    outputModule: true
   },
   optimization: {
     minimize: false,

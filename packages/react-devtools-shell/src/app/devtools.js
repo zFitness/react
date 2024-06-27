@@ -8,7 +8,7 @@ import {
 } from 'react-devtools-inline/backend';
 import {initialize as initializeFrontend} from 'react-devtools-inline/frontend';
 import {initDevTools} from 'react-devtools-shared/src/devtools';
-
+debugger;
 // This is a pretty gross hack to make the runtime loaded named-hooks-code work.
 // TODO (Webpack 5) Hoepfully we can remove this once we upgrade to Webpack 5.
 // $FlowFixMe[cannot-resolve-name]

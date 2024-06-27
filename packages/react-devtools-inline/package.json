@@ -17,6 +17,7 @@
   ],
   "scripts": {
     "build": "cross-env NODE_ENV=production webpack --config webpack.config.js",
+    "build:backend": "cross-env NODE_ENV=production webpack --config webpack.backend.js",
     "prepublish": "yarn run build",
     "start": "cross-env NODE_ENV=development webpack --config webpack.config.js --watch",
     "test:e2e": "playwright test --config=playwright.config.js"

@@ -191,7 +191,7 @@ export default class Store extends EventEmitter<{
 
   constructor(bridge: FrontendBridge, config?: Config) {
     super();
-
+    debugger;
     if (__DEBUG__) {
       debug('constructor', 'subscribing to Bridge');
     }
@@ -913,6 +913,7 @@ export default class Store extends EventEmitter<{
       console.groupCollapsed('onBridgeOperations');
       debug('onBridgeOperations', operations.join(','));
     }
+    console.log('getElementAtIndex', operations);
 
     let haveRootsChanged = false;
     let haveErrorsOrWarningsChanged = false;

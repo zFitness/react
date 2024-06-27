@@ -283,7 +283,6 @@ class Bridge<
 
   constructor(wall: Wall) {
     super();
-
     this._wall = wall;
 
     this._wallUnlisten =

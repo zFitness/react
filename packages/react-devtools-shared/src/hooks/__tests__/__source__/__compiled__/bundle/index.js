@@ -1,47 +1,61 @@
 'use strict';
 
-Object.defineProperty(exports, '__esModule', { value: true });
-
-function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
-
 var React = require('react');
-var React__default = _interopDefault(React);
 
-var _jsxFileName = "/Users/bvaughn/Documents/git/react/packages/react-devtools-shared/src/hooks/__tests__/__source__/ComponentUsingHooksIndirectly.js";
-function Component() {
+function _interopNamespaceDefault(e) {
+  var n = Object.create(null);
+  if (e) {
+    Object.keys(e).forEach(function (k) {
+      if (k !== 'default') {
+        var d = Object.getOwnPropertyDescriptor(e, k);
+        Object.defineProperty(n, k, d.get ? d : {
+          enumerable: true,
+          get: function () { return e[k]; }
+        });
+      }
+    });
+  }
+  n.default = e;
+  return Object.freeze(n);
+}
+
+var React__namespace = /*#__PURE__*/_interopNamespaceDefault(React);
+
+var _jsxFileName$5 = "/Users/zhengmiao/code/opensource/react/packages/react-devtools-shared/src/hooks/__tests__/__source__/ComponentUsingHooksIndirectly.js";
+function Component$7() {
   const countState = React.useState(0);
   const count = countState[0];
   const setCount = countState[1];
-  const darkMode = useIsDarkMode();
+  const darkMode = useIsDarkMode$1();
   const [isDarkMode] = darkMode;
   React.useEffect(() => {// ...
   }, []);
 
   const handleClick = () => setCount(count + 1);
 
-  return /*#__PURE__*/React__default.createElement(React__default.Fragment, null, /*#__PURE__*/React__default.createElement("div", {
+  return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("div", {
     __source: {
-      fileName: _jsxFileName,
+      fileName: _jsxFileName$5,
       lineNumber: 28,
       columnNumber: 7
     }
-  }, "Dark mode? ", isDarkMode), /*#__PURE__*/React__default.createElement("div", {
+  }, "Dark mode? ", isDarkMode), /*#__PURE__*/React.createElement("div", {
     __source: {
-      fileName: _jsxFileName,
+      fileName: _jsxFileName$5,
       lineNumber: 29,
       columnNumber: 7
     }
-  }, "Count: ", count), /*#__PURE__*/React__default.createElement("button", {
+  }, "Count: ", count), /*#__PURE__*/React.createElement("button", {
     onClick: handleClick,
     __source: {
-      fileName: _jsxFileName,
+      fileName: _jsxFileName$5,
       lineNumber: 30,
       columnNumber: 7
     }
   }, "Update count"));
 }
 
-function useIsDarkMode() {
+function useIsDarkMode$1() {
   const darkModeState = React.useState(false);
   const [isDarkMode] = darkModeState;
   React.useEffect(function useEffectCreate() {// Here is where we may listen to a "theme" event...
@@ -49,10 +63,10 @@ function useIsDarkMode() {
   return [isDarkMode, () => {}];
 }
 
-var _jsxFileName$1 = "/Users/bvaughn/Documents/git/react/packages/react-devtools-shared/src/hooks/__tests__/__source__/ComponentWithCustomHook.js";
-function Component$1() {
+var _jsxFileName$4 = "/Users/zhengmiao/code/opensource/react/packages/react-devtools-shared/src/hooks/__tests__/__source__/ComponentWithCustomHook.js";
+function Component$6() {
   const [count, setCount] = React.useState(0);
-  const isDarkMode = useIsDarkMode$1();
+  const isDarkMode = useIsDarkMode();
   const {
     foo
   } = useFoo();
@@ -61,35 +75,35 @@ function Component$1() {
 
   const handleClick = () => setCount(count + 1);
 
-  return /*#__PURE__*/React__default.createElement(React__default.Fragment, null, /*#__PURE__*/React__default.createElement("div", {
+  return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("div", {
     __source: {
-      fileName: _jsxFileName$1,
+      fileName: _jsxFileName$4,
       lineNumber: 25,
       columnNumber: 7
     }
-  }, "Dark mode? ", isDarkMode), /*#__PURE__*/React__default.createElement("div", {
+  }, "Dark mode? ", isDarkMode), /*#__PURE__*/React.createElement("div", {
     __source: {
-      fileName: _jsxFileName$1,
+      fileName: _jsxFileName$4,
       lineNumber: 26,
       columnNumber: 7
     }
-  }, "Count: ", count), /*#__PURE__*/React__default.createElement("div", {
+  }, "Count: ", count), /*#__PURE__*/React.createElement("div", {
     __source: {
-      fileName: _jsxFileName$1,
+      fileName: _jsxFileName$4,
       lineNumber: 27,
       columnNumber: 7
     }
-  }, "Foo: ", foo), /*#__PURE__*/React__default.createElement("button", {
+  }, "Foo: ", foo), /*#__PURE__*/React.createElement("button", {
     onClick: handleClick,
     __source: {
-      fileName: _jsxFileName$1,
+      fileName: _jsxFileName$4,
       lineNumber: 28,
       columnNumber: 7
     }
   }, "Update count"));
 }
 
-function useIsDarkMode$1() {
+function useIsDarkMode() {
   const [isDarkMode] = React.useState(false);
   React.useEffect(function useEffectCreate() {// Here is where we may listen to a "theme" event...
   }, []);
@@ -118,12 +132,12 @@ function useTheme() {
   return theme;
 }
 
-var _jsxFileName$2 = "/Users/bvaughn/Documents/git/react/packages/react-devtools-shared/src/hooks/__tests__/__source__/ComponentWithExternalCustomHooks.js";
-function Component$2() {
+var _jsxFileName$3 = "/Users/zhengmiao/code/opensource/react/packages/react-devtools-shared/src/hooks/__tests__/__source__/ComponentWithExternalCustomHooks.js";
+function Component$5() {
   const theme = useTheme();
-  return /*#__PURE__*/React__default.createElement("div", {
+  return /*#__PURE__*/React.createElement("div", {
     __source: {
-      fileName: _jsxFileName$2,
+      fileName: _jsxFileName$3,
       lineNumber: 16,
       columnNumber: 10
     }
@@ -140,7 +154,7 @@ function Component$2() {
  */
 const A = /*#__PURE__*/React.createContext(1);
 const B = /*#__PURE__*/React.createContext(2);
-function Component$3() {
+function Component$4() {
   const a = React.useContext(A);
   const b = React.useContext(B); // prettier-ignore
 
@@ -158,13 +172,12 @@ function Component$3() {
  *
  * 
  */
-
 const {
   useMemo,
   useState
-} = React__default;
+} = React;
 
-function Component$4(props) {
+function Component$3(props) {
   const InnerComponent = useMemo(() => () => {
     const [state] = useState(0);
     return state;
@@ -174,55 +187,62 @@ function Component$4(props) {
 }
 
 var ComponentWithNestedHooks = {
-  Component: Component$4
+  Component: Component$3
 };
-var ComponentWithNestedHooks_1 = ComponentWithNestedHooks.Component;
 
-var _jsxFileName$3 = "/Users/bvaughn/Documents/git/react/packages/react-devtools-shared/src/hooks/__tests__/__source__/ContainingStringSourceMappingURL.js";
+var _jsxFileName$2 = "/Users/zhengmiao/code/opensource/react/packages/react-devtools-shared/src/hooks/__tests__/__source__/ContainingStringSourceMappingURL.js";
 
-function Component$5() {
+const abc = 'abc';
+const string = 'sourceMappingURL=data:application/json;charset=utf-8;base64,' + abc;
+function Component$2() {
   const [count, setCount] = React.useState(0);
-  return /*#__PURE__*/React__default.createElement("div", {
+  return /*#__PURE__*/React.createElement("div", {
     __source: {
-      fileName: _jsxFileName$3,
-      lineNumber: 18,
+      fileName: _jsxFileName$2,
+      lineNumber: 22,
       columnNumber: 5
     }
-  }, /*#__PURE__*/React__default.createElement("p", {
+  }, /*#__PURE__*/React.createElement("p", {
     __source: {
-      fileName: _jsxFileName$3,
-      lineNumber: 19,
+      fileName: _jsxFileName$2,
+      lineNumber: 23,
       columnNumber: 7
     }
-  }, "You clicked ", count, " times"), /*#__PURE__*/React__default.createElement("button", {
+  }, "You clicked ", count, " times"), /*#__PURE__*/React.createElement("div", {
+    __source: {
+      fileName: _jsxFileName$2,
+      lineNumber: 24,
+      columnNumber: 7
+    }
+  }, "string: ", string), /*#__PURE__*/React.createElement("button", {
     onClick: () => setCount(count + 1),
     __source: {
-      fileName: _jsxFileName$3,
-      lineNumber: 20,
+      fileName: _jsxFileName$2,
+      lineNumber: 25,
       columnNumber: 7
     }
   }, "Click me"));
 }
 
-var _jsxFileName$4 = "/Users/bvaughn/Documents/git/react/packages/react-devtools-shared/src/hooks/__tests__/__source__/Example.js";
-function Component$6() {
+var _jsxFileName$1 = "/Users/zhengmiao/code/opensource/react/packages/react-devtools-shared/src/hooks/__tests__/__source__/Example.js";
+function Component$1() {
   const [count, setCount] = React.useState(0);
-  return /*#__PURE__*/React__default.createElement("div", {
+  return /*#__PURE__*/React.createElement("div", {
     __source: {
-      fileName: _jsxFileName$4,
+      fileName: _jsxFileName$1,
       lineNumber: 16,
       columnNumber: 5
     }
-  }, /*#__PURE__*/React__default.createElement("p", {
+  }, /*#__PURE__*/React.createElement("p", {
     __source: {
-      fileName: _jsxFileName$4,
+      fileName: _jsxFileName$1,
       lineNumber: 17,
       columnNumber: 7
     }
-  }, "You clicked ", count, " times"), /*#__PURE__*/React__default.createElement("button", {
+  }, "You clicked ", count, " times"), /*#__PURE__*/React.createElement("button", {
     onClick: () => setCount(count + 1),
     __source: {
-      fileName: _jsxFileName$4,
+      fileName: _jsxFileName$1,
       lineNumber: 18,
       columnNumber: 7
     }
@@ -237,13 +257,13 @@ function Component$6() {
  *
  * 
  */
-function Component$7() {
+function Component() {
   const [count] = require('react').useState(0);
 
   return count;
 }
 
-var _jsxFileName$5 = "/Users/bvaughn/Documents/git/react/packages/react-devtools-shared/src/hooks/__tests__/__source__/ToDoList.js";
+var _jsxFileName = "/Users/zhengmiao/code/opensource/react/packages/react-devtools-shared/src/hooks/__tests__/__source__/ToDoList.js";
 function ListItem({
   item,
   removeItem,
@@ -255,31 +275,31 @@ function ListItem({
   const handleToggle = React.useCallback(() => {
     toggleItem(item);
   }, [item, toggleItem]);
-  return /*#__PURE__*/React.createElement("li", {
+  return /*#__PURE__*/React__namespace.createElement("li", {
     __source: {
-      fileName: _jsxFileName$5,
+      fileName: _jsxFileName,
       lineNumber: 23,
       columnNumber: 5
     }
-  }, /*#__PURE__*/React.createElement("button", {
+  }, /*#__PURE__*/React__namespace.createElement("button", {
     onClick: handleDelete,
     __source: {
-      fileName: _jsxFileName$5,
+      fileName: _jsxFileName,
       lineNumber: 24,
       columnNumber: 7
     }
-  }, "Delete"), /*#__PURE__*/React.createElement("label", {
+  }, "Delete"), /*#__PURE__*/React__namespace.createElement("label", {
     __source: {
-      fileName: _jsxFileName$5,
+      fileName: _jsxFileName,
       lineNumber: 25,
       columnNumber: 7
     }
-  }, /*#__PURE__*/React.createElement("input", {
+  }, /*#__PURE__*/React__namespace.createElement("input", {
     checked: item.isComplete,
     onChange: handleToggle,
     type: "checkbox",
     __source: {
-      fileName: _jsxFileName$5,
+      fileName: _jsxFileName,
       lineNumber: 26,
       columnNumber: 9
     }
@@ -329,58 +349,58 @@ function List(props) {
       isComplete: !itemToToggle.isComplete
     }).concat(items.slice(index + 1)));
   }, [items]);
-  return /*#__PURE__*/React.createElement(React.Fragment, {
+  return /*#__PURE__*/React__namespace.createElement(React.Fragment, {
     __source: {
-      fileName: _jsxFileName$5,
+      fileName: _jsxFileName,
       lineNumber: 102,
       columnNumber: 5
     }
-  }, /*#__PURE__*/React.createElement("h1", {
+  }, /*#__PURE__*/React__namespace.createElement("h1", {
     __source: {
-      fileName: _jsxFileName$5,
+      fileName: _jsxFileName,
       lineNumber: 103,
       columnNumber: 7
     }
-  }, "List"), /*#__PURE__*/React.createElement("input", {
+  }, "List"), /*#__PURE__*/React__namespace.createElement("input", {
     type: "text",
     placeholder: "New list item...",
     value: newItemText,
     onChange: handleChange,
     onKeyPress: handleKeyPress,
     __source: {
-      fileName: _jsxFileName$5,
+      fileName: _jsxFileName,
       lineNumber: 104,
       columnNumber: 7
     }
-  }), /*#__PURE__*/React.createElement("button", {
+  }), /*#__PURE__*/React__namespace.createElement("button", {
     disabled: newItemText === '',
     onClick: handleClick,
     __source: {
-      fileName: _jsxFileName$5,
+      fileName: _jsxFileName,
       lineNumber: 111,
       columnNumber: 7
     }
-  }, /*#__PURE__*/React.createElement("span", {
+  }, /*#__PURE__*/React__namespace.createElement("span", {
     role: "img",
     "aria-label": "Add item",
     __source: {
-      fileName: _jsxFileName$5,
+      fileName: _jsxFileName,
       lineNumber: 112,
       columnNumber: 9
     }
-  }, "Add")), /*#__PURE__*/React.createElement("ul", {
+  }, "Add")), /*#__PURE__*/React__namespace.createElement("ul", {
     __source: {
-      fileName: _jsxFileName$5,
+      fileName: _jsxFileName,
       lineNumber: 116,
       columnNumber: 7
     }
-  }, items.map(item => /*#__PURE__*/React.createElement(ListItem, {
+  }, items.map(item => /*#__PURE__*/React__namespace.createElement(ListItem, {
     key: item.id,
     item: item,
     removeItem: removeItem,
     toggleItem: toggleItem,
     __source: {
-      fileName: _jsxFileName$5,
+      fileName: _jsxFileName,
       lineNumber: 118,
       columnNumber: 11
     }
@@ -389,18 +409,18 @@ function List(props) {
 
 var ToDoList = /*#__PURE__*/Object.freeze({
   __proto__: null,
-  ListItem: ListItem,
-  List: List
+  List: List,
+  ListItem: ListItem
 });
 
-exports.ComponentUsingHooksIndirectly = Component;
-exports.ComponentWithCustomHook = Component$1;
-exports.ComponentWithExternalCustomHooks = Component$2;
-exports.ComponentWithMultipleHooksPerLine = Component$3;
-exports.ComponentWithNestedHooks = ComponentWithNestedHooks_1;
-exports.ContainingStringSourceMappingURL = Component$5;
-exports.Example = Component$6;
-exports.InlineRequire = Component$7;
+exports.ComponentUsingHooksIndirectly = Component$7;
+exports.ComponentWithCustomHook = Component$6;
+exports.ComponentWithExternalCustomHooks = Component$5;
+exports.ComponentWithMultipleHooksPerLine = Component$4;
+exports.ComponentWithNestedHooks = ComponentWithNestedHooks.Component;
+exports.ContainingStringSourceMappingURL = Component$2;
+exports.Example = Component$1;
+exports.InlineRequire = Component;
 exports.ToDoList = ToDoList;
 exports.useTheme = useTheme;
 //# sourceMappingURL=index.js.map

@@ -125,3 +125,4 @@ export function initialize(contentWindow: any): void {
   installConsoleFunctionsToWindow();
   installHook(contentWindow);
 }
+
