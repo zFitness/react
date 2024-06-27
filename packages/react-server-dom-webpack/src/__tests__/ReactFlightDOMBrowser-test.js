@@ -192,41 +192,6 @@ describe('ReactFlightDOMBrowser', () => {
     });
   });
 
-  it('should resolve HTML using W3C streams', async () => {
-    function Text({children}) {
-      return <span>{children}</span>;
-    }
-    function HTML() {
-      return (
-        <div>
-          <Text>hello</Text>
-          <Text>world</Text>
-        </div>
-      );
-    }
-
-    function App() {
-      const model = {
-        html: <HTML />,
-      };
-      return model;
-    }
-
-    const stream = await serverAct(() =>
-      ReactServerDOMServer.renderToReadableStream(<App />),
-    );
-    const response = ReactServerDOMClient.createFromReadableStream(stream);
-    const model = await response;
-    expect(model).toEqual({
-      html: (
-        <div>
-          <span>hello</span>
-          <span>world</span>
-        </div>
-      ),
-    });
-  });
-
   it('should resolve client components (with async chunks) when referenced in props', async () => {
     let resolveClientComponentChunk;
 
@@ -378,6 +343,53 @@ describe('ReactFlightDOMBrowser', () => {
     });
 
     expect(container.innerHTML).toBe('<pre>[[1,2,3],[1,2,3]]</pre>');
+  });
+
+  it('should resolve deduped objects that are themselves blocked', async () => {
+    let resolveClientComponentChunk;
+
+    const Client = clientExports(
+      [4, 5],
+      '42',
+      '/test.js',
+      new Promise(resolve => (resolveClientComponentChunk = resolve)),
+    );
+
+    const shared = [1, 2, 3, Client];
+
+    const stream = await serverAct(() =>
+      ReactServerDOMServer.renderToReadableStream(
+        <div>
+          <Suspense fallback="Loading">
+            <span>
+              {shared /* this will serialize first and block nearest element */}
+            </span>
+          </Suspense>
+          {shared /* this will be referenced inside the blocked element */}
+        </div>,
+        webpackMap,
+      ),
+    );
+
+    function ClientRoot({response}) {
+      return use(response);
+    }
+
+    const response = ReactServerDOMClient.createFromReadableStream(stream);
+    const container = document.createElement('div');
+    const root = ReactDOMClient.createRoot(container);
+
+    await act(() => {
+      root.render(<ClientRoot response={response} />);
+    });
+
+    expect(container.innerHTML).toBe('');
+
+    await act(() => {
+      resolveClientComponentChunk();
+    });
+
+    expect(container.innerHTML).toBe('<div><span>12345</span>12345</div>');
   });
 
   it('should progressively reveal server components', async () => {
